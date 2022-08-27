@@ -25,18 +25,28 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: Icon(Icons.rocket_launch,
                           size: 100, color: Colors.blue)),
                   const SizedBox(height: 12),
-                  const Center(
-                    child: Text("News Apps",
-                        style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold)),
+                  Center(
+                    child: Text(
+                      "News Apps",
+                      style:
+                          Theme.of(context).textTheme.headlineMedium?.copyWith(
+                                color: Colors.black,
+                              ),
+                    ),
                   ),
                   const SizedBox(height: 30),
-                  const Text("Email"),
+                  Text(
+                    "Email",
+                    style: Theme.of(context).textTheme.caption,
+                  ),
                   const TextField(
                       decoration:
                           InputDecoration(hintText: "Input your email...")),
                   const SizedBox(height: 12),
-                  const Text("Password"),
+                  Text(
+                    "Password",
+                    style: Theme.of(context).textTheme.caption,
+                  ),
                   const TextField(
                       obscureText: true,
                       decoration:
@@ -53,6 +63,9 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   void redirectToHome() {
+    const snackBar = SnackBar(content: Text("Login Berhasil!"));
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+
     Navigator.of(context).pushNamedAndRemoveUntil("home", (r) => false);
   }
 }
