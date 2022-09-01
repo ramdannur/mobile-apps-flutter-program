@@ -5,7 +5,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final listPopMenu = {'Logout'};
+    final listPopMenu = {'Profile', 'Logout'};
     return Scaffold(
       appBar: AppBar(
         title: const Text("Home"),
@@ -61,6 +61,10 @@ class HomeScreen extends StatelessWidget {
 
         Navigator.of(context)
             .pushNamedAndRemoveUntil('login', (route) => false);
+        break;
+
+      case 'Profile':
+        Navigator.of(context).pushNamed('profile');
         break;
     }
   }

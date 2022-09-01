@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/home/home_screen.dart';
 import 'package:news_app/login/login_screen.dart';
+import 'package:news_app/profile/profile_screen.dart';
 import 'package:news_app/splash/splash_screen.dart';
 
 void main() {
@@ -44,7 +45,8 @@ class MyApp extends StatelessWidget {
       routes: {
         'splash': (context) => const SplashScreen(),
         'login': (context) => const LoginScreen(),
-        'home': (context) => const HomeScreen()
+        'home': (context) => const HomeScreen(),
+        'profile': (context) => const ProfileScreen(),
       },
     );
   }
