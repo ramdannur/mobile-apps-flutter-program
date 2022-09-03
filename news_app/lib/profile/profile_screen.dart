@@ -6,9 +6,6 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Profile"),
-      ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
         child: Column(
@@ -103,13 +100,6 @@ class ProfileScreen extends StatelessWidget {
             const SizedBox(
               height: 12,
             ),
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton.icon(
-                  icon: const Icon(Icons.home),
-                  onPressed: () => redirectToHome(context),
-                  label: const Text("Kembali ke home")),
-            )
           ],
         ),
       ),

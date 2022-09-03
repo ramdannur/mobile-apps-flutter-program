@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/home/home_screen.dart';
 import 'package:news_app/login/login_screen.dart';
+import 'package:news_app/menu/menu_screen.dart';
 import 'package:news_app/profile/profile_screen.dart';
 import 'package:news_app/splash/splash_screen.dart';
 
@@ -47,6 +48,7 @@ class MyApp extends StatelessWidget {
         'login': (context) => const LoginScreen(),
         'home': (context) => const HomeScreen(),
         'profile': (context) => const ProfileScreen(),
+        'menu': (context) => const MenuScreen(),
       },
     );
   }

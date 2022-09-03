@@ -66,6 +66,6 @@ class _LoginScreenState extends State<LoginScreen> {
     const snackBar = SnackBar(content: Text("Login Berhasil!"));
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
 
-    Navigator.of(context).pushNamedAndRemoveUntil("home", (r) => false);
+    Navigator.of(context).pushNamedAndRemoveUntil("menu", (r) => false);
   }
 }
