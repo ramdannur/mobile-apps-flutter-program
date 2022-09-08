@@ -30,8 +30,7 @@ class _NewsScreenState extends State<NewsScreen> {
         child: IntrinsicHeight(
           child: InkWell(
             onTap: () {
-              const snackBar = SnackBar(content: Text("Item Clicked!"));
-              ScaffoldMessenger.of(context).showSnackBar(snackBar);
+              Navigator.of(context).pushNamed('detail');
             },
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.stretch,
