@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:news_app/home/home_screen.dart';
 import 'package:news_app/news/news_screen.dart';
 import 'package:news_app/profile/profile_screen.dart';
+import 'package:news_app/users/users_screen.dart';
 
 class MenuScreen extends StatefulWidget {
   const MenuScreen({Key? key}) : super(key: key);
@@ -16,6 +17,7 @@ class _MenuScreenState extends State<MenuScreen> {
   var listWidget = [
     const HomeScreen(),
     const NewsScreen(),
+    const UserScreen(),
     const ProfileScreen(),
   ];
   int navIndex = 0;
@@ -40,6 +42,7 @@ class _MenuScreenState extends State<MenuScreen> {
       ),
       body: listWidget[navIndex],
       bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
           onTap: (index) {
             setState(() {
               navIndex = index;
@@ -49,6 +52,7 @@ class _MenuScreenState extends State<MenuScreen> {
           items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
             BottomNavigationBarItem(icon: Icon(Icons.newspaper), label: "News"),
+            BottomNavigationBarItem(icon: Icon(Icons.people), label: "Users"),
             BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile")
           ]),
     );
