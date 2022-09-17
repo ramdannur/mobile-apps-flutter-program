@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class DetailScreen extends StatelessWidget {
   const DetailScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final arg = ModalRoute.of(context)!.settings.arguments as Map;
+    final arg = Get.arguments;
     return Scaffold(
       appBar: AppBar(
         title: const Text("Detail"),

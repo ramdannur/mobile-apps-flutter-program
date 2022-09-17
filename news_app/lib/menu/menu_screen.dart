@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:get/get.dart';
 import 'package:news_app/home/home_screen.dart';
 import 'package:news_app/news/news_screen.dart';
 import 'package:news_app/profile/profile_screen.dart';
@@ -64,8 +65,7 @@ class _MenuScreenState extends State<MenuScreen> {
         const snackBar = SnackBar(content: Text("Logout Berhasil!"));
         ScaffoldMessenger.of(context).showSnackBar(snackBar);
 
-        Navigator.of(context)
-            .pushNamedAndRemoveUntil('login', (route) => false);
+        Get.offNamed("login");
         break;
     }
   }

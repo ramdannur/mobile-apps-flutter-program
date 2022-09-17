@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -35,7 +36,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void finishPage() {
     Future.delayed(const Duration(milliseconds: 3000), () {
       setState(() {
-        Navigator.of(context).pushNamedAndRemoveUntil("login", (r) => false);
+        Get.offNamed("login");
       });
     });
   }

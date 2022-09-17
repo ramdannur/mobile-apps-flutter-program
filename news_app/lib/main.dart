@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/route_manager.dart';
+import 'package:news_app/common/user_global_controller.dart';
 import 'package:news_app/detail/detail_screen.dart';
 import 'package:news_app/home/home_screen.dart';
 import 'package:news_app/login/login_screen.dart';
@@ -7,6 +10,8 @@ import 'package:news_app/profile/profile_screen.dart';
 import 'package:news_app/splash/splash_screen.dart';
 
 void main() {
+  Get.put(UserGlobalController());
+
   runApp(const MyApp());
 }
 
@@ -15,7 +20,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -43,15 +48,15 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      initialRoute: 'splash',
-      routes: {
-        'splash': (context) => const SplashScreen(),
-        'login': (context) => const LoginScreen(),
-        'home': (context) => const HomeScreen(),
-        'profile': (context) => const ProfileScreen(),
-        'menu': (context) => const MenuScreen(),
-        'detail': (context) => const DetailScreen(),
-      },
+      initialRoute: '/splash',
+      getPages: [
+        GetPage(name: '/splash', page: () => const SplashScreen()),
+        GetPage(name: '/login', page: () => const LoginScreen()),
+        GetPage(name: '/home', page: () => const HomeScreen()),
+        GetPage(name: '/profile', page: () => const ProfileScreen()),
+        GetPage(name: '/menu', page: () => const MenuScreen()),
+        GetPage(name: '/detail', page: () => const DetailScreen())
+      ],
     );
   }
 }

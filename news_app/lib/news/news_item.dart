@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class NewsItem extends StatelessWidget {
   const NewsItem({Key? key}) : super(key: key);
@@ -20,7 +21,7 @@ class NewsItem extends StatelessWidget {
         child: IntrinsicHeight(
           child: InkWell(
             onTap: () {
-              Navigator.of(context).pushNamed('detail', arguments: {
+              Get.toNamed('detail', arguments: {
                 'judul': judul,
                 'gambar': gambar,
                 'sumber': sumber,
