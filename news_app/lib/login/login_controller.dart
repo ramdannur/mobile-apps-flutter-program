@@ -13,7 +13,11 @@ class LoginController extends GetxController {
 
   void submit() {
     if (txtEmail.text == "admin@gmail.com" && txtPassword.text == "1234") {
-      userGlobalController.nama = "Admin";
+      userGlobalController.nama = "Ramdan";
+      userGlobalController.namaLengkap = "Ramdan Nurul";
+      userGlobalController.email = "Ramdannur12@gmail.com";
+      userGlobalController.pekerjaan = "Software Engineer";
+      userGlobalController.hobi = "Travelling";
 
       Get.snackbar("Sukses", "Login Berhasil!");
       redirectToHome();
