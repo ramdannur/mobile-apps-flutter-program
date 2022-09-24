@@ -10,6 +10,8 @@ import 'package:news_app/profile/profile_screen.dart';
 import 'package:news_app/splash/splash_screen.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
   Get.put(UserGlobalController());
 
   runApp(const MyApp());

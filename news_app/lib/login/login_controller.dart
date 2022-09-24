@@ -18,6 +18,7 @@ class LoginController extends GetxController {
       userGlobalController.email = "Ramdannur12@gmail.com";
       userGlobalController.pekerjaan = "Software Engineer";
       userGlobalController.hobi = "Travelling";
+      userGlobalController.saveSession();
 
       Get.snackbar("Sukses", "Login Berhasil!");
       redirectToHome();

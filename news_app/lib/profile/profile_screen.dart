@@ -30,7 +30,7 @@ class ProfileScreen extends StatelessWidget {
                     ),
                   ),
                   Center(
-                    child: Text("Ramdan Nurul",
+                    child: Text(controller.namaLengkap,
                         style: Theme.of(context).textTheme.headline5?.copyWith(
                             color: Colors.black, fontWeight: FontWeight.bold)),
                   ),
@@ -48,7 +48,7 @@ class ProfileScreen extends StatelessWidget {
                               ?.copyWith(
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold)),
-                      Text("Ramdan",
+                      Text(controller.namaPanggilan,
                           style: Theme.of(context)
                               .textTheme
                               .subtitle1
@@ -69,7 +69,7 @@ class ProfileScreen extends StatelessWidget {
                               ?.copyWith(
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold)),
-                      Text("Ramdannur12@gmail.com",
+                      Text(controller.email,
                           style: Theme.of(context)
                               .textTheme
                               .subtitle1
@@ -90,7 +90,7 @@ class ProfileScreen extends StatelessWidget {
                               ?.copyWith(
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold)),
-                      Text("Software Engineer",
+                      Text(controller.pekerjaan,
                           style: Theme.of(context)
                               .textTheme
                               .subtitle1
@@ -111,7 +111,7 @@ class ProfileScreen extends StatelessWidget {
                               ?.copyWith(
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold)),
-                      Text("Travelling",
+                      Text(controller.hobi,
                           style: Theme.of(context)
                               .textTheme
                               .subtitle1

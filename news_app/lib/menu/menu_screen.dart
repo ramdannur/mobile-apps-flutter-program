@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
+import 'package:news_app/common/user_global_controller.dart';
 import 'package:news_app/home/home_screen.dart';
 import 'package:news_app/news/news_screen.dart';
 import 'package:news_app/profile/profile_screen.dart';
@@ -62,6 +63,8 @@ class _MenuScreenState extends State<MenuScreen> {
   void handleClick(BuildContext context, Object? value) {
     switch (value) {
       case 'Logout':
+        UserGlobalController userGlobalController = Get.find();
+        userGlobalController.deleteSession();
         const snackBar = SnackBar(content: Text("Logout Berhasil!"));
         ScaffoldMessenger.of(context).showSnackBar(snackBar);
 
