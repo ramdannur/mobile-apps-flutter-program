@@ -23,7 +23,7 @@ class _MenuScreenState extends State<MenuScreen> {
     const ProfileScreen(),
   ];
   int navIndex = 0;
-  final listPopMenu = {'Logout'};
+  final listPopMenu = {'Edit Profil', 'Logout'};
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,6 +69,10 @@ class _MenuScreenState extends State<MenuScreen> {
         ScaffoldMessenger.of(context).showSnackBar(snackBar);
 
         Get.offNamed("login");
+        break;
+
+      case 'Edit Profil':
+        Get.toNamed('profile/edit');
         break;
     }
   }

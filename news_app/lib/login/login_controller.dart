@@ -8,7 +8,7 @@ class LoginController extends GetxController {
   UserGlobalController userGlobalController = Get.find();
 
   void redirectToHome() {
-    Get.offNamed("menu");
+    Get.offAllNamed("menu");
   }
 
   void submit() {
