@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:news_app/news/article.dart';
 
 class NewsItem extends StatelessWidget {
-  const NewsItem({Key? key}) : super(key: key);
+  final Article model;
+  const NewsItem(this.model, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    var gambar =
-        "https://img.inews.co.id/media/822/files/inews_new/2022/03/07/puspen_kejagung.jpg";
-    var judul =
-        "Kejagung Kembalikan Berkas Perkara Ferdy Sambo Cs ke Bareskrim";
-    var sumber = "Inews";
-    var deskripsi =
-        "Kejaksaan Agung mengembalikan berkas Ferdy Sambo dan tiga tersangka lainnnya ke Bareskrim. Keempatnya merupakan tersangka kasus pembunuhan Brigadir J.";
+    var gambar = model.urlToImage ?? "";
+    var judul = model.title ?? "-";
+    var sumber = model.source?.name ?? "-";
+    var deskripsi = model.description ?? "-";
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
       child: Card(
