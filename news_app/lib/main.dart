@@ -1,5 +1,8 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:news_app/common/notification_service.dart';
 import 'package:news_app/common/user_global_controller.dart';
 import 'package:news_app/detail/detail_screen.dart';
 import 'package:news_app/home/home_screen.dart';
@@ -9,12 +12,30 @@ import 'package:news_app/profile/profile_screen.dart';
 import 'package:news_app/profile_edit/profile_edit_screen.dart';
 import 'package:news_app/splash/splash_screen.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  await NotificationService().init();
+
+  initFirebase();
 
   Get.put(UserGlobalController());
 
   runApp(const MyApp());
+}
+
+initFirebase() async {
+  await Firebase.initializeApp();
+
+  FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
+
+  await FirebaseMessaging.instance.setForegroundNotificationPresentationOptions(
+      alert: true, badge: true, sound: true);
+}
+
+Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+  await Firebase.initializeApp();
+  print("Handling a background message ${message.messageId}");
 }
 
 class MyApp extends StatelessWidget {

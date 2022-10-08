@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:news_app/common/notification_service.dart';
 import 'package:news_app/common/user_global_controller.dart';
 
 class LoginController extends GetxController {
@@ -21,6 +22,8 @@ class LoginController extends GetxController {
       userGlobalController.saveSession();
 
       Get.snackbar("Sukses", "Login Berhasil!");
+      NotificationService().showNotification(
+          'Informasi', "Akun anda berhasil login!", "Data yang dikirim");
       redirectToHome();
     } else {
       Get.snackbar("Error", "Login Gagal!");

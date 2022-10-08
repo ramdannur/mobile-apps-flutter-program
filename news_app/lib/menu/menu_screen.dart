@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:news_app/common/user_global_controller.dart';
 import 'package:news_app/home/home_screen.dart';
+import 'package:news_app/menu/menu_controller.dart';
 import 'package:news_app/news/news_screen.dart';
 import 'package:news_app/profile/profile_screen.dart';
 import 'package:news_app/users/users_screen.dart';
@@ -26,38 +27,46 @@ class _MenuScreenState extends State<MenuScreen> {
   final listPopMenu = {'Edit Profil', 'Logout'};
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Home"),
-        actions: [
-          PopupMenuButton(
-            onSelected: ((value) {
-              handleClick(context, value);
-            }),
-            itemBuilder: ((context) {
-              return listPopMenu.map((choice) {
-                return PopupMenuItem(value: choice, child: Text(choice));
-              }).toList();
-            }),
-          )
-        ],
-      ),
-      body: listWidget[navIndex],
-      bottomNavigationBar: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          onTap: (index) {
-            setState(() {
-              navIndex = index;
-            });
-          },
-          currentIndex: navIndex,
-          items: const [
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-            BottomNavigationBarItem(icon: Icon(Icons.newspaper), label: "News"),
-            BottomNavigationBarItem(icon: Icon(Icons.people), label: "Users"),
-            BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile")
-          ]),
-    );
+    return GetBuilder(
+        init: MenuController(),
+        builder: (MenuController controller) {
+          return Scaffold(
+            appBar: AppBar(
+              title: const Text("Home"),
+              actions: [
+                PopupMenuButton(
+                  onSelected: ((value) {
+                    handleClick(context, value);
+                  }),
+                  itemBuilder: ((context) {
+                    return listPopMenu.map((choice) {
+                      return PopupMenuItem(value: choice, child: Text(choice));
+                    }).toList();
+                  }),
+                )
+              ],
+            ),
+            body: listWidget[navIndex],
+            bottomNavigationBar: BottomNavigationBar(
+                type: BottomNavigationBarType.fixed,
+                onTap: (index) {
+                  setState(() {
+                    navIndex = index;
+                  });
+                },
+                currentIndex: navIndex,
+                items: const [
+                  BottomNavigationBarItem(
+                      icon: Icon(Icons.home), label: "Home"),
+                  BottomNavigationBarItem(
+                      icon: Icon(Icons.newspaper), label: "News"),
+                  BottomNavigationBarItem(
+                      icon: Icon(Icons.people), label: "Users"),
+                  BottomNavigationBarItem(
+                      icon: Icon(Icons.person), label: "Profile")
+                ]),
+          );
+        });
   }
 
   void handleClick(BuildContext context, Object? value) {
