@@ -1,6 +1,9 @@
+import 'dart:convert';
+
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:get/get.dart';
 
 class NotificationService {
   static final NotificationService _notificationService =
@@ -32,10 +35,18 @@ class NotificationService {
     final String? payload = notificationResponse.payload;
     if (notificationResponse.payload != null) {
       debugPrint('notification payload: $payload');
+
+      Map<String, dynamic> jsonPayload = jsonDecode(payload ?? "");
+
+      Get.toNamed("notification", arguments: {
+        'title': jsonPayload['title'],
+        'body': jsonPayload['body'],
+        'payload': payload,
+      });
     }
   }
 
-  void showNotification(title, desc, payload) async {
+  void showNotification(title, desc, data) async {
     const AndroidNotificationDetails androidNotificationDetails =
         AndroidNotificationDetails("ID", "news_channel",
             channelDescription: 'Channel Descritption',
@@ -46,6 +57,8 @@ class NotificationService {
 
     const NotificationDetails notificationDetails =
         NotificationDetails(android: androidNotificationDetails);
+
+    String payload = jsonEncode({'title': title, 'body': desc, 'data': data});
 
     await flutterLocalNotificationsPlugin
         .show(0, title, desc, notificationDetails, payload: payload);

@@ -12,8 +12,8 @@ class MenuController extends GetxController {
       AndroidNotification? android = message.notification?.android;
 
       if (notification != null && android != null) {
-        NotificationService().showNotification(
-            notification.title, notification.body, 'Additional Data');
+        NotificationService().showNotification(notification.title ?? "",
+            notification.body ?? "", message.data.toString());
       }
     });
 

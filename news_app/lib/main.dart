@@ -8,6 +8,7 @@ import 'package:news_app/detail/detail_screen.dart';
 import 'package:news_app/home/home_screen.dart';
 import 'package:news_app/login/login_screen.dart';
 import 'package:news_app/menu/menu_screen.dart';
+import 'package:news_app/notification/notification_screen.dart';
 import 'package:news_app/profile/profile_screen.dart';
 import 'package:news_app/profile_edit/profile_edit_screen.dart';
 import 'package:news_app/splash/splash_screen.dart';
@@ -79,7 +80,8 @@ class MyApp extends StatelessWidget {
         GetPage(name: '/profile', page: () => const ProfileScreen()),
         GetPage(name: "/profile/edit", page: () => const ProfileEditScreen()),
         GetPage(name: '/menu', page: () => const MenuScreen()),
-        GetPage(name: '/detail', page: () => const DetailScreen())
+        GetPage(name: '/detail', page: () => const DetailScreen()),
+        GetPage(name: "/notification", page: () => const NotificationScreen()),
       ],
     );
   }
